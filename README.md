@@ -1,63 +1,138 @@
-# CodeIgniter 4 Application Starter
+</p>
+<h2>Összefoglaló<a class="sdfootnoteanc" name="sdfootnote1anc" href="#sdfootnote1sym"><sup>1</sup></a></font></h2>
+<p style="line-height: 150%">Ebben
+a projektben erőforrás-optimalizáló algoritmus kutatása,
+fejlesztése és az erre alapuló műszaktervező prototípus
+alkalmazás kidolgozása történt meg. A rendelkezésre álló
+erőforrás-állomány (ebben a prototípusban: munkaerő) újszerű
+optimalizációs algoritmussal kerül beosztásra, a
+kapacitásigényeket optimálisan lefedve, a munkavállalók
+feltételeit is megfelelő súlyozással figyelembe véve. A
+létrehozott prototípus egy webalkalmazás, amely PHP-ban van
+megírva, Apache webszerveren fut, MariaDB adatbázist használ és
+demója megtekinthető az <a href="https://muszakterv.larskol.hu" name="https://muszakterv.larskol.hu"> https://muszakterv.larskol.hu</a> webcímen. 
+A demóalkalmazásba való bejelentkezéshez a lábjegyzetben
+megadott account-okat lehet használni.<a class="sdfootnoteanc" name="sdfootnote2anc" href="#sdfootnote2sym"><sup>2</sup></a>
+A megtekinthető demóban is
+szerepelnek demó adatok (munkavállaló, képességek,
+kapacitásigény, munkavállalói igények, …) és az optimalizáló
+is futtatható a demóban. Természetesen új adatokkal is
+feltölthető a rendszer, és újra tesztelhető a beosztáskészítés.
+</p>
+<p >A forráskód megtekinthető a <a href="https://muszakterv.larskol.hu/forraskod/munkaero.zip" name="https://muszakterv.larskol.hu/forraskod/munkaero.zip"> https://muszakterv.larskol.hu/forraskod/munkaero.zip</a> webcímen, open source
+licenccel lett közzé téve.</p> Ez a valóságban egy Visual Studio Code PHP-projekt. A pontos verziók a forráskódban meg vannak adva.
 
-## What is CodeIgniter?
+<h2>Ismertetés</h2>
+<p style="line-height: 150%">A webalkalmazásban először a felhasználók regisztrációját kell
+elvégezni. Néhány előre definiált felhasználót megadunk a
+mellékletben. Ezen az űrlapon egy beszúrás történik a Users
+táblába.</p>
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+<p style="line-height: 150%"> Ebben a
+táblában vannak tárolva a felhasználók adatai: email címe,
+jelszava, neve (külön tárolva a vezeték- és keresztnevet), pontjainak száma,
+jogosultsági szintje, melyik részleghez tartozik, a heti maximális munkaórák száma, éves fizetett
+szabadság. Egy felhasználónak egyféle jogosultsága lehet, és egy részleghez tartozhat. 
+</p> 
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+<p style="line-height: 150%">A
+pontszámok majd a munkavállalók munkabeosztási kéréseinek,
+feltételeinek súlyozására lesznek használva.  A részlegek azok,
+akik a munkaerőbeosztást fogják készíteni.
+</p>
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+<p style="line-height: 150%">A
+munkavállalóknak lehetnek bizonyos ismereteik, képességeik,
+amelyek a munkaerő-beosztásnál majd számítanak. Ezeket (a
+képességek listáját, valamint azt, hogy milyen ismeretet birtokol
+melyik munkavállaló) is adatbázisban tárolja a webalkalmazás, és
+van ezeket kezelő űrlap is a webalkalmazásban. Nem csak a
+kompetencia meglétét, hanem annak szintjét is tárolja,
+munkavállalónként.</p>
 
-## Installation & updates
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+<p align="left" style="line-height: 150%">Egy
+adott részlegnek a beosztás tervezése előtt meg kell adnia a
+kapacitásigényét műszakokra lebontva, amiben nem csak létszámot,
+hanem kompetenciák mennyiségét is meg kell adni. Amikor üres
+tapasztalatot adunk meg, az csak a kompetenciát meg nem adó
+általános létszámot jelenti.</p>
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
 
-## Setup
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+<p align="left" style="line-height: 150%"> A
+beosztás készítésekor viszont nem csak a kapacitásigényeket
+veszi figyelembe az alkalmazás, hanem a munkavállalók egyénileg
+megadott feltételeit, igényeit (a felhasználó korlátozásai).
+Milyen feltételekről lehet szó? Ezek a munkavállalók által
+megadhatók a webalkalmazásban, de a lehetséges feltétel-típusok
+egy előre definiált, fixen felsorolt halmazból választhatók ki.
+Jelen prototipusban a következő feltétel-lehetőségek közül
+lehet választani. (A webalkalmazás később bővíthető még
+összetettebb feltételek megadásával.)
+</p>
 
-## Important Change with index.php
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+<p align="left" style="line-height: 150%">Amikor
+a munkavállalók a feltételeket megadják, a típustól függően
+paraméterezhetik dátumokkal (hét, nap) ill. egyéb beállításokkal.
+A munkavállalók a feltétel-megadáskor egy bónuszpont-értéket
+is megadnak, aminek az a jelentése, hogy a meglévő pontjai közül
+(amiket korábban kiérdemelt) mennyit hajlandó erre a feltételre
+rászánni. </p>
 
-**Please** read the user guide for a better explanation of how CI4 works!
 
-## Repository Management
 
-We use Github issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+<p style="line-height: 150%">A
+beosztáskezelő algoritmus mindezen inputokat figyelembe véve
+dolgozza ki a heti beosztást. A kapacitásigényeket mindenképpen
+kielégíti, ha egyetlen mód van rá, s azon felül a munkavállalói
+igényekre optimalizál, a kielégített igények pontjainak
+összegére. Az elkészült beosztást a megjelenítésen kívül
+táblázatba is lehet exportálni, más vállalatirányítási
+szoftverekhez való kapcsolás céljából. Az algoritmus működése
+backtrack-algoritmus, időkorlátozva, ahol a jelenlegi 2 perces
+időkorláttal 10 fős részleges optimális beosztása elkészíthető.</p>
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
 
-## Server Requirements
 
-PHP version 7.3 or higher is required, with the following extensions installed:
+<h2>Az elkészült prototípus újdonságereje</h2>
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+<p style="line-height: 150%">Az
+elkészült prototípus újdonsága az, hogy az optimalizáló
+algoritmus a munkavállalói igények logikailag összetett
+kombinációit is megengedi figyelembe venni (lásd a feltételek
+definiálási lehetőségeit). Ezenkívül a bónuszpontok
+»feltételek áraként« való felhasználása és az azok szerinti
+optimalizáció is újszerű. Természetesen az elkészült szoftver
+»open source« megvalósítása is újdonságerővel bír.</p>
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+<h2>További
+fejlesztések</h2>
 
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+<p>A fixált feltételek logikai
+összetettségén szükséges még javítani, legalább és/vagy
+feltételösszekötéseket megengedve, egyelőre csak és-kapcsolatok
+megengedettek (a felsorolás révén). Nyilván a
+próba-felhasználások révén további fejlesztési igények fognak
+keletkezni.</p>
+
+<p>Szerzők: Kiss Attila Zoltán, Kolbe Tamás, Vályi Sándor</p>
+
+<div id="sdfootnote1"><p class="sdfootnote"><a class="sdfootnotesym" name="sdfootnote1sym" href="#sdfootnote1anc">1</a>Ezen
+	dokumentum elérhető a következő
+	webcímen:<br/>
+<a href="https://www.larskol.hu/muszakterv/olvasdel.html" name="https://www.larskol.hu/muszakterv/olvasdel.html">https://www.larskol.hu/muszakterv/olvasdel.html</a></p>
+</div>
+<div id="sdfootnote2"><p class="sdfootnote"><a class="sdfootnotesym" name="sdfootnote1sym" href="#sdfootnote1anc">2</a>
+
+<br> admin szerepkör: bejelentkezési email: "admin@servicecenter.com", jelszó: FDnajAhLhewmSQ8;
+<br> részleg-admin szerepkör: bejelentkezési email: "depadmin@servicecenter.com", jelszó: ;BbD@444m6 
+<br> másik részleg-admin szerepkör: bejelentkezési email: "dep.admin@servicecenter.com", jelszó: 9Le$2$1* 
+<br> a többi felhasználónál a jelszó: Jelszo12345</p>
+</div>
+
+</body>
+</html>
