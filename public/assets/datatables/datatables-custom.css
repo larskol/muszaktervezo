@@ -1,0 +1,164 @@
+:root {
+    --background-tr: #656565;
+    --background-odd: #4f4f4f;
+    --background-even: #111111;
+    --background-sort1-odd: #5e5e5e;
+    --background-sort1-even: #7b7b7b;
+    --background-hover: #414141;
+    --background-sort1-hover: #414141;
+    --background-select: #2d2d2d;
+    --text-active-page: #dddddd;
+    --text-input: #e6e6e6e6;
+    --text-table: #999999;
+    --table-border-background: #999999;
+    --table-btn-bg-1: rgba(230, 230, 230, 0.1);
+    --table-btn-bg-2: rgba(255, 255, 255, 0.1);
+    --paginate-hover-bg-1: #606060;
+    --paginate-hover-bg-2: #2f2f2f;
+    --paginate-hover-bg-active-1: #acacac;
+    --paginate-hover-bg-active-2: #656565;
+    --paginate-hover-bg-active-border: #202020;
+    --pagination-hover-color: #d7d7d7;
+    --selected-bg-odd: #1c1c1c;
+    --selected-bg-even: #1c1c1c;
+    --selected-bg-odd-sort: #202020;
+    --selected-bg-even-sort: #202020;
+    --background-hover-select: #2d2d2d;
+  }
+  .dt-buttons{
+    margin-left: 10px;
+  }
+  table.dataTable thead .sorting {
+    background-image: url("../images/sort_both.png");
+  }
+  table.dataTable thead .sorting_asc {
+    background-image: url("../images/sort_asc.png") !important;
+  }
+  table.dataTable thead .sorting_desc {
+    background-image: url("../images/sort_desc.png") !important;
+  }
+  table.dataTable thead .sorting_asc_disabled {
+    background-image: url("../images/sort_asc_disabled.png");
+  }
+  table.dataTable thead .sorting_desc_disabled {
+    background-image: url("../images/sort_desc_disabled.png");
+  }
+  table.dataTable tbody tr {
+    background-color: var(--background-tr);
+  }
+  table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+    background-color: var(--background-odd);
+  }
+  /* even selected*/
+  table.dataTable tbody tr.selected {
+    background-color: var(--selected-bg-even);
+  }
+  /* odd selected*/
+  table.dataTable.stripe tbody tr.odd.selected, table.dataTable.display tbody tr.odd.selected {
+    background-color: var(--selected-bg-odd);
+  }
+  /* odd selected sort*/
+  table.dataTable.display tbody tr.odd.selected > .sorting_1, table.dataTable.order-column.stripe tbody tr.odd.selected > .sorting_1 {
+    background-color: var(--selected-bg-odd-sort);
+  }
+  /* even selected sort*/
+  table.dataTable.display tbody tr.even.selected > .sorting_1, table.dataTable.order-column.stripe tbody tr.even.selected > .sorting_1 {
+    background-color: var(--selected-bg-even-sort);
+  }
+  /* selected hover*/
+  table.dataTable.hover tbody tr:hover.selected, table.dataTable.display tbody tr:hover.selected {
+    background-color: var(--background-hover-select);
+  }
+  /* selected sort hover*/
+  table.dataTable.display tbody tr:hover.selected > .sorting_1, table.dataTable.order-column.hover tbody tr:hover.selected > .sorting_1 {
+    background-color: var(--background-hover-select);
+  }
+  table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+    background-color: var(--background-hover);
+  }
+  table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.stripe tbody tr.odd > .sorting_1 {
+    background-color: var(--background-sort1-odd);
+  }
+  table.dataTable.display tbody tr.even > .sorting_1, table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
+    background-color: var(--background-sort1-even);
+  }
+  table.dataTable.display tbody tr:hover > .sorting_1, table.dataTable.order-column.hover tbody tr:hover > .sorting_1 {
+    background-color: var(--background-sort1-hover);
+  }
+  table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td{
+    border-top: 1px solid var(--table-border-background);
+  }
+  .dataTables_wrapper .dataTables_length select {
+    background-color: var(--background-select);
+    color: var(--text-input);
+  }
+  .dataTables_wrapper .dataTables_filter input {
+    color: var(--text-input);
+  }
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: var(--text-table) !important;
+  }
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: var(--text-active-page) !important;
+    border: 1px solid var(--paginate-hover-bg-active-border);
+    background-color: var(--paginate-hover-bg-active-1);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--paginate-hover-bg-active-1)), color-stop(100%, var(--paginate-hover-bg-active-2)));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, var(--paginate-hover-bg-active-1) 0%, var(--paginate-hover-bg-active-2) 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, var(--paginate-hover-bg-active-1) 0%, var(--paginate-hover-bg-active-2) 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, var(--paginate-hover-bg-active-1) 0%, var(--paginate-hover-bg-active-2) 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, var(--paginate-hover-bg-active-1) 0%, var(--paginate-hover-bg-active-2) 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, var(--paginate-hover-bg-active-1) 0%, var(--paginate-hover-bg-active-2) 100%);
+    /* W3C */
+  }
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter,
+  .dataTables_wrapper .dataTables_info,
+  .dataTables_wrapper .dataTables_processing,
+  .dataTables_wrapper .dataTables_paginate {
+    color: var(--text-table);
+  }
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    color: var(--pagination-hover-color) !important;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, var(--paginate-hover-bg-1)), color-stop(100%, var(--paginate-hover-bg-2)));
+    background: -webkit-linear-gradient(top, var(--paginate-hover-bg-1) 0%, var(--paginate-hover-bg-2) 100%);
+    background: -moz-linear-gradient(top, var(--paginate-hover-bg-1) 0%, var(--paginate-hover-bg-2) 100%);
+    background: -ms-linear-gradient(top, var(--paginate-hover-bg-1) 0%, var(--paginate-hover-bg-2) 100%);
+    background: -o-linear-gradient(top, var(--paginate-hover-bg-1) 0%, var(--paginate-hover-bg-2) 100%);
+    background: linear-gradient(to bottom, var(--paginate-hover-bg-1) 0%, var(--paginate-hover-bg-2) 100%);
+  }
+  button.dt-button,
+  div.dt-button,
+  a.dt-button,
+  input.dt-button {
+    color: var(--text-input);
+    background-color: var(--background-tr);
+    /* Fallback */
+    background: -webkit-linear-gradient(top, var(--table-btn-bg-1) 0%, var(--table-btn-bg-2) 100%);
+    /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background: -moz-linear-gradient(top, var(--table-btn-bg-1) 0%, var(--table-btn-bg-2) 100%);
+    /* FF3.6 */
+    background: -ms-linear-gradient(top, var(--table-btn-bg-1) 0%, var(--table-btn-bg-2) 100%);
+    /* IE10 */
+    background: -o-linear-gradient(top, var(--table-btn-bg-1) 0%, var(--table-btn-bg-2) 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, var(--table-btn-bg-1) 0%, var(--table-btn-bg-2) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='rgba(230, 230, 230, 0.1)', EndColorStr='rgba(255, 255, 255, 0.1)');
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    outline: none;
+    text-overflow: ellipsis;
+  }
+  table.dataTable tbody td.select-checkbox::before, table.dataTable tbody th.select-checkbox::before{
+    border: none;
+  }
+  table.dataTable thead th, table.dataTable thead td {
+    border-bottom: 1px solid var(--table-border-background);
+  }

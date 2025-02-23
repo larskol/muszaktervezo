@@ -1,0 +1,2 @@
+<input type="number" step="1" min="<?= $min ?? '0' ?>" max="<?= $max ?? '' ?>" value="<?= $min ?? '0' ?>"
+ name="restriction_cost" class="form-control form-control-sm input-style" id="restriction-cost" placeholder="<?= lang("Form.formCost") ?>">

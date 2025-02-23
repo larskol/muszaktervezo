@@ -1,0 +1,25 @@
+<?php
+    return [
+        'navAdministration' => 'Adminisztráció',
+        'navHome' => 'Főoldal',
+        'navAddNew' => 'Új hozzáadása',
+        'navList' => 'Lista',
+        'navAddNewUserFromFile' => 'CSV feltöltés',
+        'navUpdateUserBonusPoints' => 'Tallér feltöltés',
+        'navDepartments' => 'Részlegek',
+        'navKnowledge' => 'Ismeretek',
+        'navKnowledgeLevels' => 'Tudásszintek',
+        'navShifts' => 'Műszakok',
+        'navRestrictions' => 'Korlátozások',
+        'navUsers' => 'Felhasználók',
+        'navSkills' => 'Szaktudásom',
+        'navMyRestrictions' => 'Korlátozásaim',
+        'navMyRestrictionsCurrent' => 'Korlátozásaim',
+        'navMyRestrictionsHistory' => 'Korábbi korlátozásaim',
+        'navSignOut' => 'Kijelentkezés',
+        'navCapacityDemands' => 'Kapacitás igények',
+        'navUploadCapacityDemands' => 'Kapacitás igény feltöltése (CSV)',
+        'navProfile' => 'Profil',
+        'navDetails' => 'Részletek',
+        'navSchedule' => 'Beosztás'
+    ];

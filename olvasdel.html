@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p.sdfootnote { margin-left: 0.6cm; text-indent: -0.6cm; margin-bottom: 0cm; font-size: 10pt; line-height: 100%; background: transparent }
+		a:link { color: #000080; so-language: zxx; text-decoration: underline }
+		a:visited { color: #800000; so-language: zxx; text-decoration: underline }
+		a.sdfootnoteanc { font-size: 57% }
+	</style>
+</head>
+
+<body lang="hu-HU" link="#000080" vlink="#800000" dir="ltr" >
+<font face="Latin Modern Math">
+<h1> Kutatási eredmény bemutató a GINOP-2.1.7-15-2016-01075 azonosítószámmal nyilvántartott pályázatról  
+</h1>
+
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<h2>Összefoglaló<a class="sdfootnoteanc" name="sdfootnote1anc" href="#sdfootnote1sym"><sup>1</sup></a></font></h2>
+<p style="line-height: 150%">Ebben
+a projektben erőforrás-optimalizáló algoritmus kutatása,
+fejlesztése és az erre alapuló műszaktervező prototípus
+alkalmazás kidolgozása történt meg. A rendelkezésre álló
+erőforrás-állomány (ebben a prototípusban: munkaerő) újszerű
+optimalizációs algoritmussal kerül beosztásra, a
+kapacitásigényeket optimálisan lefedve, a munkavállalók
+feltételeit is megfelelő súlyozással figyelembe véve. A
+létrehozott prototípus egy webalkalmazás, amely PHP-ban van
+megírva, Apache webszerveren fut, MariaDB adatbázist használ és
+demója megtekinthető az <a href="https://muszakterv.larskol.hu" name="https://muszakterv.larskol.hu"> https://muszakterv.larskol.hu</a> webcímen. 
+A demóalkalmazásba való bejelentkezéshez a lábjegyzetben
+megadott account-okat lehet használni.<a class="sdfootnoteanc" name="sdfootnote2anc" href="#sdfootnote2sym"><sup>2</sup></a>
+A megtekinthető demóban is
+szerepelnek demó adatok (munkavállaló, képességek,
+kapacitásigény, munkavállalói igények, …) és az optimalizáló
+is futtatható a demóban. Természetesen új adatokkal is
+feltölthető a rendszer, és újra tesztelhető a beosztáskészítés.
+</p>
+<p >A forráskód megtekinthető a <a href="https://muszakterv.larskol.hu/forraskod/munkaero.zip" name="https://muszakterv.larskol.hu/forraskod/munkaero.zip"> https://muszakterv.larskol.hu/forraskod/munkaero.zip</a> webcímen, open source
+licenccel lett közzé téve.</p> Ez a valóságban egy Visual Studio Code PHP-projekt. A pontos verziók a forráskódban meg vannak adva.
+
+<h2>Ismertetés</h2>
+<p style="line-height: 150%">A webalkalmazásban először a felhasználók regisztrációját kell
+elvégezni. Néhány előre definiált felhasználót megadunk a
+mellékletben. Ezen az űrlapon egy beszúrás történik a Users
+táblába.</p>
+
+<img src="bejel.png" name="bejelentkezés" align="center" width="90%">
+  <br clear="right"/>
+
+
+<p style="line-height: 150%"> Ebben a
+táblában vannak tárolva a felhasználók adatai: email címe,
+jelszava, neve (külön tárolva a vezeték- és keresztnevet), pontjainak száma,
+jogosultsági szintje, melyik részleghez tartozik, a heti maximális munkaórák száma, éves fizetett
+szabadság. Egy felhasználónak egyféle jogosultsága lehet, és egy részleghez tartozhat. 
+</p> 
+
+<p style="line-height: 150%">A
+pontszámok majd a munkavállalók munkabeosztási kéréseinek,
+feltételeinek súlyozására lesznek használva.  A részlegek azok,
+akik a munkaerőbeosztást fogják készíteni.
+</p>
+
+<p style="line-height: 150%">A
+munkavállalóknak lehetnek bizonyos ismereteik, képességeik,
+amelyek a munkaerő-beosztásnál majd számítanak. Ezeket (a
+képességek listáját, valamint azt, hogy milyen ismeretet birtokol
+melyik munkavállaló) is adatbázisban tárolja a webalkalmazás, és
+van ezeket kezelő űrlap is a webalkalmazásban. Nem csak a
+kompetencia meglétét, hanem annak szintjét is tárolja,
+munkavállalónként.</p>
+
+
+<img src="kompetenciak.png" name="kompetenciák" align="center" width="90%">
+  <br clear="right"/>
+
+<p align="left" style="line-height: 150%">Egy
+adott részlegnek a beosztás tervezése előtt meg kell adnia a
+kapacitásigényét műszakokra lebontva, amiben nem csak létszámot,
+hanem kompetenciák mennyiségét is meg kell adni. Amikor üres
+tapasztalatot adunk meg, az csak a kompetenciát meg nem adó
+általános létszámot jelenti.</p>
+
+<img src="kapacitasigeny.png" name="kapacitásigény" align="center" width="90%" >
+  <br clear="right"/>
+
+
+
+<p align="left" style="line-height: 150%"> A
+beosztás készítésekor viszont nem csak a kapacitásigényeket
+veszi figyelembe az alkalmazás, hanem a munkavállalók egyénileg
+megadott feltételeit, igényeit (a felhasználó korlátozásai).
+Milyen feltételekről lehet szó? Ezek a munkavállalók által
+megadhatók a webalkalmazásban, de a lehetséges feltétel-típusok
+egy előre definiált, fixen felsorolt halmazból választhatók ki.
+Jelen prototipusban a következő feltétel-lehetőségek közül
+lehet választani. (A webalkalmazás később bővíthető még
+összetettebb feltételek megadásával.)
+</p>
+
+
+<img src="korlatozastipusok.png" name="korlátozástípusok" align="center" width="30%">
+  <br clear="right"/>
+
+<p align="left" style="line-height: 150%">Amikor
+a munkavállalók a feltételeket megadják, a típustól függően
+paraméterezhetik dátumokkal (hét, nap) ill. egyéb beállításokkal.
+A munkavállalók a feltétel-megadáskor egy bónuszpont-értéket
+is megadnak, aminek az a jelentése, hogy a meglévő pontjai közül
+(amiket korábban kiérdemelt) mennyit hajlandó erre a feltételre
+rászánni. </p>
+
+<img src="korlatozasaim.png" name="korlátozásaim" align="center" width="90%">
+  <br clear="right"/>
+
+
+<p style="line-height: 150%">A
+beosztáskezelő algoritmus mindezen inputokat figyelembe véve
+dolgozza ki a heti beosztást. A kapacitásigényeket mindenképpen
+kielégíti, ha egyetlen mód van rá, s azon felül a munkavállalói
+igényekre optimalizál, a kielégített igények pontjainak
+összegére. Az elkészült beosztást a megjelenítésen kívül
+táblázatba is lehet exportálni, más vállalatirányítási
+szoftverekhez való kapcsolás céljából. Az algoritmus működése
+backtrack-algoritmus, időkorlátozva, ahol a jelenlegi 2 perces
+időkorláttal 10 fős részleges optimális beosztása elkészíthető.</p>
+
+
+<img src="beosztas.png" name="beosztás" align="center" width="90%">
+  <br clear="right"/>
+
+<h2>Az elkészült prototípus újdonságereje</h2>
+
+<p style="line-height: 150%">Az
+elkészült prototípus újdonsága az, hogy az optimalizáló
+algoritmus a munkavállalói igények logikailag összetett
+kombinációit is megengedi figyelembe venni (lásd a feltételek
+definiálási lehetőségeit). Ezenkívül a bónuszpontok
+»feltételek áraként« való felhasználása és az azok szerinti
+optimalizáció is újszerű. Természetesen az elkészült szoftver
+»open source« megvalósítása is újdonságerővel bír.</p>
+
+<h2>További
+fejlesztések</h2>
+
+<p>A fixált feltételek logikai
+összetettségén szükséges még javítani, legalább és/vagy
+feltételösszekötéseket megengedve, egyelőre csak és-kapcsolatok
+megengedettek (a felsorolás révén). Nyilván a
+próba-felhasználások révén további fejlesztési igények fognak
+keletkezni.</p>
+
+<p>Szerzők: Kiss Attila Zoltán, Kolbe Tamás, Vályi Sándor</p>
+
+<div id="sdfootnote1"><p class="sdfootnote"><a class="sdfootnotesym" name="sdfootnote1sym" href="#sdfootnote1anc">1</a>Ezen
+	dokumentum elérhető a következő
+	webcímen:<br/>
+<a href="https://www.larskol.hu/muszakterv/olvasdel.html" name="https://www.larskol.hu/muszakterv/olvasdel.html">https://www.larskol.hu/muszakterv/olvasdel.html</a></p>
+</div>
+<div id="sdfootnote2"><p class="sdfootnote"><a class="sdfootnotesym" name="sdfootnote1sym" href="#sdfootnote1anc">2</a>
+
+<br> admin szerepkör: bejelentkezési email: "admin@servicecenter.com", jelszó: FDnajAhLhewmSQ8;
+<br> részleg-admin szerepkör: bejelentkezési email: "depadmin@servicecenter.com", jelszó: ;BbD@444m6 
+<br> másik részleg-admin szerepkör: bejelentkezési email: "dep.admin@servicecenter.com", jelszó: 9Le$2$1* 
+<br> a többi felhasználónál a jelszó: Jelszo12345</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+<input type="<?= $type ?? 'text' ?>" <?= isset($step) ? 'step="'.$step.'"' : '' ?> <?= isset($min) ? 'min="'.$min.'"' : '' ?> <?= isset($max) ? 'max="'.$max.'"' : '' ?>
+ name="restriction_value" class="form-control form-control-sm input-style" id="restriction-value" placeholder="<?= $placeholder ?? '' ?>">
